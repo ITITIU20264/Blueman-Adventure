@@ -9,8 +9,7 @@
 
 
 ## Contributing
-Vinh Bao Phuc - ITITIU20127  
-<br>
+Vinh Bao Phuc - ITITIU20127 
 Tran Minh Huy - ITITIU20219
 <br>
 Nguyen Thanh Hien - ITITIU20142 
