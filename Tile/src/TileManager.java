@@ -1,3 +1,5 @@
+package src;
+
 import main.GamePanel;
 
 public class TileManager {
