@@ -1,5 +1,3 @@
-// import src.GamePanel;
-// import Main.KeyHandler;
 import java.awt.image.BufferedImage;
 public class Entity {
    
