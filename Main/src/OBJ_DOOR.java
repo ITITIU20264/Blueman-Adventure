@@ -5,9 +5,10 @@ public class OBJ_DOOR extends superobject {
     public OBJ_DOOR() {
         name = "Door";
         try{
-            image2 = ImageIO.read(getClass().getResourceAsStream("door.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("door.png"));
         }catch (IOException e){
             e.printStackTrace(); 
         }
+        collision = true;
     }
 }

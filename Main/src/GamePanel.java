@@ -1,12 +1,7 @@
-// import java.awt.Color;
-// import java.awt.Dimension;
-// import java.awt.Graphics;
-// import java.awt.Graphics2D;
-
 import java.awt.event.KeyListener;
+
 import java.awt.*;
 import javax.swing.*;
-// import entity.Player;
 
 // import javax.swing.JPanel;
 
@@ -17,26 +12,30 @@ public class GamePanel extends JPanel implements Runnable {
     final int scale = 3;
 
     public final int tileSize = originalTileSize * scale; // 48x48 tile 
-    final int maxScreenCol = 16;
-    final int maxScreenRow = 12;
-    final int screenWidth = tileSize * maxScreenCol; // 768 pixels
-    final int screenHeight = tileSize * maxScreenRow; // 576 pixels
-    // final int screenWidth = 1920; // 768 pixels
-    // final int screenHeight = 1080; // 576 pixels
+    public final int maxScreenCol = 16;
+    public final int maxScreenRow = 12;
+    public final int screenWidth = tileSize * maxScreenCol; // 768 pixels
+    public final int screenHeight = tileSize * maxScreenRow; // 576 pixels
 
+    // final int screenWidth = 1920; // 1920 pixels
+    // final int screenHeight = 1080; // 1080 pixels
+
+    // WORLD SETTINGS
+    public final int maxWorldCol = 50;
+    public final int maxWorldRow = 50;
+    public final int worldWidth = tileSize * maxWorldCol;
+    public final int worldHeight = tileSize * maxWorldRow;
+
+    // FPS
     int FPS = 60;
 
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public AssetSetter assetSetter = new AssetSetter(this);
-    Player player = new Player(this,keyH);
+    public CollisionChecker cChecker = new CollisionChecker(this);
+    public Player player = new Player(this, keyH);
     public superobject obj[] = new superobject[10];
-
-    // SET PLAYER'S DEAFAULT POSITION AND SPEED
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 4;
 
     public GamePanel() {
         
@@ -49,7 +48,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     }
 
-    public void setupGame(){
+    public void setupGame() {
         assetSetter.setobject();
     }
 
@@ -104,20 +103,31 @@ public class GamePanel extends JPanel implements Runnable {
     }
     
     public void update() {
+    
         player.update();
+
     }
 
     public void paintComponent(Graphics g) {
+
         super.paintComponent(g);
+
         Graphics2D g2 = (Graphics2D)g;
+        //tile
         tileM.draw(g2);
+
+        //object
         for(int i = 0; i < obj.length; i++) {
-            if(obj[i] != null){
+            if(obj[i] != null) {
                 obj[i].draw(g2, this);
             }
         }
+
+        //player
         player.draw(g2);
+        
         g2.dispose();
+
     }
 
 }
