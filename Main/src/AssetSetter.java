@@ -9,5 +9,9 @@ public class AssetSetter{
         gp.obj[0].worldX = 9 * gp.tileSize;
         gp.obj[0].worldY = 6 * gp.tileSize;
 
+        gp.obj[1] = new OBJ_DOOR();
+        gp.obj[1].worldX = 1 * gp.tileSize;
+        gp.obj[1].worldY = 0 * gp.tileSize;
+
     }
 }
