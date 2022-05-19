@@ -19,16 +19,19 @@ public class GamePanel extends JPanel implements Runnable {
     public final int tileSize = originalTileSize * scale; // 48x48 tile 
     final int maxScreenCol = 16;
     final int maxScreenRow = 12;
-    // final int screenWidth = tileSize * maxScreenCol; // 768 pixels
-    // final int screenHeight = tileSize * maxScreenRow; // 576 pixels
-    final int screenWidth = 1920; // 768 pixels
-    final int screenHeight = 1080; // 576 pixels
+    final int screenWidth = tileSize * maxScreenCol; // 768 pixels
+    final int screenHeight = tileSize * maxScreenRow; // 576 pixels
+    // final int screenWidth = 1920; // 768 pixels
+    // final int screenHeight = 1080; // 576 pixels
 
-    int FPS = 144;
+    int FPS = 60;
 
+    TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+    public AssetSetter assetSetter = new AssetSetter(this);
     Player player = new Player(this,keyH);
+    public superobject obj[] = new superobject[10];
 
     // SET PLAYER'S DEAFAULT POSITION AND SPEED
     int playerX = 100;
@@ -44,6 +47,10 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener((KeyListener) keyH);
         this.setFocusable(true);
 
+    }
+
+    public void setupGame(){
+        assetSetter.setobject();
     }
 
     public void startGameThread() {
@@ -103,6 +110,12 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
+        tileM.draw(g2);
+        for(int i = 0; i < obj.length; i++) {
+            if(obj[i] != null){
+                obj[i].draw(g2, this);
+            }
+        }
         player.draw(g2);
         g2.dispose();
     }
