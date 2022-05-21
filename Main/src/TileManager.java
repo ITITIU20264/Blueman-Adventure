@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 // import javax.swing.*;
 // import java.awt.image.BufferedImage;
 import java.io.*;
+import java.awt.image.BufferedImage;
 
 public class TileManager {
     
@@ -19,32 +20,31 @@ public class TileManager {
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("world01.txt");
+        loadMap("GenerateWorld.txt");
     }
 
     public void getTileImage() {
-        try {
-            tile[0] = new Tile();
-            tile[0].image = ImageIO.read(getClass().getResourceAsStream("grass.png"));
+            
+        setup(0, "grass", false);
+        setup(1, "wall", true);
+        setup(2, "water", true);
+        setup(3, "earth", false);
+        setup(4, "tree", true);
+        setup(5, "sand", false);
 
-            tile[1] = new Tile();
-            tile[1].image = ImageIO.read(getClass().getResourceAsStream("wall.png"));
-            tile[1].collision = true;
+    }
 
-            tile[2] = new Tile();
-            tile[2].image = ImageIO.read(getClass().getResourceAsStream("water.png"));
-            tile[2].collision = true;
+    public void setup(int index, String imageName, boolean collision){
 
-            tile[3] = new Tile();
-            tile[3].image = ImageIO.read(getClass().getResourceAsStream("earth.png"));
+        UtilityTool uTool = new UtilityTool();
+        try{
 
-            tile[4] = new Tile();
-            tile[4].image = ImageIO.read(getClass().getResourceAsStream("tree.png"));
-            tile[4].collision = true;
+            tile[index] = new Tile();
+            tile[index].image = ImageIO.read(getClass().getResourceAsStream(imageName + ".png"));
+            tile[index].image = uTool.scaledImage(tile[index].image, gp.tileSize, gp.tileSize);
+            tile[index].collision = collision;
 
-            tile[5] = new Tile();
-            tile[5].image = ImageIO.read(getClass().getResourceAsStream("sand.png"));
-        } catch(IOException e) {
+        }catch(IOException e){
             e.printStackTrace();
         }
     }
