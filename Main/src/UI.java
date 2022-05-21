@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.text.DecimalFormat;
 
 public class UI {
     
@@ -15,6 +16,7 @@ public class UI {
     int messageCounter = 0;
 
     double playTime ;
+    DecimalFormat DF = new DecimalFormat("#0");
 
     public UI(GamePanel gp){
         this.gp = gp;
@@ -37,7 +39,7 @@ public class UI {
 
         //TIME
         playTime += (double)1/60;
-        g2.drawString("Time: "+playTime, gp.tileSize * 11, 65);
+        g2.drawString("Time: "+DF.format(playTime), gp.tileSize * 12, 65);
 
         //DISPLAY MESSAGE
         if(messageOn == true){

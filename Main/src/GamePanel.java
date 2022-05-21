@@ -2,6 +2,8 @@ import java.awt.event.KeyListener;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
+import java.awt.event.KeyEvent;
 
 // import javax.swing.JPanel;
 
@@ -41,6 +43,11 @@ public class GamePanel extends JPanel implements Runnable {
     public Player player = new Player(this, keyH);
     public superobject obj[] = new superobject[10];
 
+    //GAME STATE
+    public int gameState;
+    public final int playState = 1;
+    public final int gamePause = 2;
+
     public GamePanel() {
         
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -54,6 +61,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void setupGame() {
         assetSetter.setobject();
+        gameState = playState;
     }
 
     public void startGameThread() {
@@ -108,7 +116,14 @@ public class GamePanel extends JPanel implements Runnable {
     
     public void update() {
     
-        player.update();
+        if(gameState == playState){
+            player.update();
+        }
+        // if(gameState == pauseState){
+
+        //     //WAITING 
+        // }
+
 
     }
 

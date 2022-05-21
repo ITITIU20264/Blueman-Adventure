@@ -5,19 +5,23 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.awt.Rectangle;
+import java.awt.Graphics2D;
 
 public class Player extends Entity {
     
-    GamePanel gp;
+    // GamePanel gp;
     KeyHandler keyH;
 
     public final int screenX;
     public final int screenY;
+    int standCount = 0;
     int hasKey = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
-        this.gp = gp;
+        super (gp);
+
+        // this.gp = gp;
         this.keyH = keyH;
 
         screenX = gp.screenWidth/2 - (gp.tileSize/2);
@@ -43,6 +47,7 @@ public class Player extends Entity {
     }
     public void getPlayerImage() {
         try {
+
             up1 = ImageIO.read(getClass().getResourceAsStream("boy_up_1.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("boy_up_2.png"));
             down1 = ImageIO.read(getClass().getResourceAsStream("boy_down_1.png"));
@@ -52,6 +57,7 @@ public class Player extends Entity {
             right1 = ImageIO.read(getClass().getResourceAsStream("boy_right_1.png"));
             right2 = ImageIO.read(getClass().getResourceAsStream("boy_right_2.png"));
         }catch (IOException e) {
+            
             e.printStackTrace();
         }
     }
