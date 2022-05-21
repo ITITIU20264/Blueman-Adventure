@@ -16,7 +16,7 @@ public class UI {
     int messageCounter = 0;
 
     double playTime ;
-    DecimalFormat DF = new DecimalFormat("#0");
+    DecimalFormat DF = new DecimalFormat("#0.00");
 
     public UI(GamePanel gp){
         this.gp = gp;
