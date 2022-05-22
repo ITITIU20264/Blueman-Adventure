@@ -9,20 +9,21 @@ public class NPC_OLDMAN extends Entity{
     public NPC_OLDMAN(GamePanel gp){
         super (gp);
 
-        direction = "down";
+        direction = "left";
         speed = 1;
+        getImage();
+    }
+    public void getImage() {
 
-        public void getImage(){
+        up1 = setup("oldman_up_1");
+        up2 = setup("oldman_up_2");
+        down1 = setup("oldman_down_1");
+        down2 = setup("oldman_down_2");
+        left1 = setup("oldman_left_1");
+        left2 = setup("oldman_left_2");
+        right1 = setup("oldman_right_1");
+        right2 = setup("oldman_right_2");
 
-            up1 = ImageIO.read(getClass().getResourceAsStream("oldman_up_1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("oldman_up_2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("oldman_down_1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("oldman_down_2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("oldman_left_1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("oldman_left_2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("oldman_right_1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("oldman_right_2.png"));
-        }
     }
     
 }

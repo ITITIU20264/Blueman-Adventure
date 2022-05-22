@@ -18,7 +18,7 @@ public class Main extends JFrame {
 
         gamePanel.setupGame();
         gamePanel.startGameThread();
-
+        
         
     }
 }
