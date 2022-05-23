@@ -45,10 +45,18 @@ public class Entity {
         if(collision == false) {
             switch(direction) {
     
-                case "up": worldY -= speed; break;
-                case "down": worldY += speed; break;
-                case "left": worldX -= speed;break;
-                case "right": worldX += speed; break;
+                case "up": 
+                worldY -= speed; 
+                break;
+                case "down": 
+                worldY += speed; 
+                break;
+                case "left": 
+                worldX -= speed;
+                break;
+                case "right": 
+                worldX += speed; 
+                break;
     
             }
         }

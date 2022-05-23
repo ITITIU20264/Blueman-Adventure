@@ -11,7 +11,6 @@ public class Player extends Entity {
     
     // GamePanel gp;
     KeyHandler keyH;
-
     public final int screenX;
     public final int screenY;
     int standCount = 0;
@@ -40,8 +39,8 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-        worldX = gp.tileSize * 2;
-        worldY = gp.tileSize * 7;
+        worldX = gp.tileSize * 23;
+        worldY = gp.tileSize * 21;
         speed = 3;
         direction = "right"; 
     }
