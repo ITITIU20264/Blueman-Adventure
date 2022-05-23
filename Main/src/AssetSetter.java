@@ -34,8 +34,8 @@ public class AssetSetter{
     public void setnpc(){
 
         gp.npc[0] = new NPC_OLDMAN(gp);
-        gp.npc[0].worldX = 12 * gp.tileSize;
-        gp.npc[0].worldY = 7 * gp.tileSize;
+        gp.npc[0].worldX = 10 * gp.tileSize;
+        gp.npc[0].worldY = 4 * gp.tileSize;
 
     }
 }
